@@ -273,22 +273,23 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-md-8 col-lg-7">
 
-                        <form class="contact-form" method="POST" action="url">
+                        <form id="my-form" class="contact-form" method="POST"
+                            action="https://script.google.com/macros/s/AKfycbw2nDfLET9FmzMuVzSe1Lyutj2e9e6epJxuYiUDErp1YvFNv2DFkWzHdbsnct77ovYG/exec">
                             <div class="form-row">
                                 <div class="col form-group">
-                                    <input type="text" class="form-control" placeholder="Name" required>
+                                    <input name="Name" type="text" class="form-control" placeholder="Name" required>
                                 </div>
                                 <div class="col form-group">
-                                    <input type="text" class="form-control" placeholder="Phone">
+                                    <input name="Phone" type="text" class="form-control" placeholder="Phone">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col form-group">
-                                    <input type="email" class="form-control" placeholder="Email" required>
+                                    <input name="Email" type="email" class="form-control" placeholder="Email" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <textarea name="" id="" cols="30" rows="5" class="form-control"
+                                <textarea name="Message" id="" cols="30" rows="5" class="form-control"
                                     placeholder="Your Message" required></textarea>
                             </div>
                             <div class="form-group">
@@ -350,6 +351,24 @@
 
         <!-- Ollie js -->
         <script type="text/javascript" src="assets/js/Ollie.js"></script>
+
+        <script>
+            window.addEventListener("load", function () {
+                const form = document.getElementById('my-form');
+                form.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    const data = new FormData(form);
+                    const action = e.target.action;
+                    fetch(action, {
+                        method: 'POST',
+                        body: data,
+                    })
+                        .then(() => {
+                            alert("Success!");
+                        })
+                });
+            });
+        </script>
 
     </body>
 
