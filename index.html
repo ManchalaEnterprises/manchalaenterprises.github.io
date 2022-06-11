@@ -19,22 +19,28 @@
 
         <style>
             * {
-              box-sizing: border-box;
+                box-sizing: border-box;
             }
-            
+
             .galcolumn {
-              float: left;
-              width: 25%;
-              padding: 5px;
+                float: left;
+                width: 25%;
+                padding: 5px;
             }
-            
+
             /* Clearfix (clear floats) */
             .galrow::after {
-              content: "";
-              clear: both;
-              display: table;
+                content: "";
+                clear: both;
+                display: table;
             }
-            </style>
+
+            @media screen and (max-width: 1024px) {
+                .galcolumn {
+                    width: 100%;
+                }
+            }
+        </style>
 
 
     </head>
@@ -243,7 +249,7 @@
 
             <div class="galrow">
                 <div class="galcolumn">
-                    <img src="assets/imgs/gallery1.jpg" alt="img" style="width: 100%;" >
+                    <img src="assets/imgs/gallery1.jpg" alt="img" style="width: 100%;">
                 </div>
                 <div class="galcolumn">
                     <img src="assets/imgs/gallery2.jpg" alt="img" style="width: 100%;">
@@ -255,6 +261,7 @@
                     <img src="assets/imgs/gallery4.jpg" alt="img" style="width: 100%;">
                 </div>
             </div>
+
         </section>
 
 
